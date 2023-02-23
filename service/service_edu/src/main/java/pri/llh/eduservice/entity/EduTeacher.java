@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -49,6 +51,7 @@ public class EduTeacher implements Serializable {
     private Integer sort;
 
     @ApiModelProperty(value = "logic delete 1（true）deleted， 0（false）not delete")
+    @TableLogic
     private Integer isDeleted;
 
     @ApiModelProperty(value = "create time")

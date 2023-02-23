@@ -2,10 +2,8 @@ package pri.llh.eduservice.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import pri.llh.eduservice.entity.EduTeacher;
 import pri.llh.eduservice.service.EduTeacherService;
 
@@ -38,5 +36,13 @@ public class EduTeacherController {
         List<EduTeacher> teacherList = teacherService.list(null);
         return teacherList;
     }
+
+    @DeleteMapping("/removeTeacher/{id}")
+    public boolean removeTeacher(@PathVariable String id){
+        boolean flag = teacherService.removeById(id);
+        return flag;
+    }
+
+
 }
 
