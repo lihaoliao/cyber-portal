@@ -1,6 +1,9 @@
 package pri.llh.eduservice.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +21,11 @@ import java.util.List;
  * @author testjava
  * @since 2023-02-23
  */
+@Api(tags = "edu_teacher database management operation")
 @RestController
 @RequestMapping("/eduservice/teacher")
 public class EduTeacherController {
+
 
 
     @Autowired
@@ -30,6 +35,7 @@ public class EduTeacherController {
      * select all teacher data
      * @return
      */
+    @ApiOperation("find all teacher and return a list")
     @GetMapping("/findAllTeacher")
     public List<EduTeacher> findAllTeacher(){
         //invoke service object method
@@ -37,8 +43,9 @@ public class EduTeacherController {
         return teacherList;
     }
 
+    @ApiOperation("logic delete teacher by id")
     @DeleteMapping("/removeTeacher/{id}")
-    public boolean removeTeacher(@PathVariable String id){
+    public boolean removeTeacher(@ApiParam(name = "id",value = "teacher id",required = true) @PathVariable String id){
         boolean flag = teacherService.removeById(id);
         return flag;
     }
