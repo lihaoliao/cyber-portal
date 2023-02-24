@@ -3,6 +3,8 @@ package pri.llh.eduservice.service;
 import pri.llh.eduservice.entity.EduTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * Educator Service Class
@@ -14,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface EduTeacherService extends IService<EduTeacher> {
 
+    
 }

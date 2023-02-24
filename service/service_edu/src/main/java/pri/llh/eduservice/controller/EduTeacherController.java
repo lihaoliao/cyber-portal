@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import pri.llh.eduservice.entity.EduTeacher;
 import pri.llh.eduservice.service.EduTeacherService;
+import pri.llh.utils.Result;
 
 import java.util.List;
 
@@ -37,17 +38,17 @@ public class EduTeacherController {
      */
     @ApiOperation("find all teacher and return a list")
     @GetMapping("/findAllTeacher")
-    public List<EduTeacher> findAllTeacher(){
+    public Result findAllTeacher(){
         //invoke service object method
         List<EduTeacher> teacherList = teacherService.list(null);
-        return teacherList;
+        return Result.success().setData("items",teacherList);
     }
 
     @ApiOperation("logic delete teacher by id")
     @DeleteMapping("/removeTeacher/{id}")
-    public boolean removeTeacher(@ApiParam(name = "id",value = "teacher id",required = true) @PathVariable String id){
+    public Result removeTeacher(@ApiParam(name = "id",value = "teacher id",required = true) @PathVariable String id){
         boolean flag = teacherService.removeById(id);
-        return flag;
+        return flag ? Result.success() : Result.error();
     }
 
 
