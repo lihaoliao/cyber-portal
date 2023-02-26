@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"pri.llh"})
+@MapperScan("pri.llh.eduservice.mapper")
 public class EduApplication {
     public static void main(String[] args) {
         SpringApplication.run(EduApplication.class, args);

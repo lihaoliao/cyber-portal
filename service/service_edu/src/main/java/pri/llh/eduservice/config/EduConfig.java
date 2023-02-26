@@ -2,6 +2,7 @@ package pri.llh.eduservice.config;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
  * @since 1.0
  */
 @Configuration
-@MapperScan("pri.llh.eduservice.mapper")
 public class EduConfig {
     /**
      * Logic delete injector
@@ -21,5 +21,13 @@ public class EduConfig {
     @Bean
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
+    }
+
+    /**
+     * Pagination Interceptor
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor(){
+        return new PaginationInterceptor();
     }
 }
