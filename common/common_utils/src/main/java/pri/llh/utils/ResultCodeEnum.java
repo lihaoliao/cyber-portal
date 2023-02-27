@@ -9,7 +9,7 @@ import lombok.Getter;
  * @since 1.0
  */
 @Getter
-public enum ResultCode {
+public enum ResultCodeEnum {
     /**
      *  ResultCode
      */
@@ -19,7 +19,7 @@ public enum ResultCode {
     private Integer code;
     private String msg;
 
-    ResultCode(Integer code, String msg) {
+    ResultCodeEnum(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }

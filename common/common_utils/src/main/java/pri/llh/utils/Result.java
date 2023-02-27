@@ -42,8 +42,8 @@ public class Result {
     public static Result success(){
         Result result = new Result();
         result.setSuccess(true);
-        result.setCode(ResultCode.SUCCESS.getCode());
-        result.setMessgae(ResultCode.SUCCESS.getMsg());
+        result.setCode(ResultCodeEnum.SUCCESS.getCode());
+        result.setMessgae(ResultCodeEnum.SUCCESS.getMsg());
         return result;
     }
 
@@ -53,8 +53,8 @@ public class Result {
     public static Result error(){
         Result result = new Result();
         result.setSuccess(false);
-        result.setCode(ResultCode.ERROR.getCode());
-        result.setMessgae(ResultCode.ERROR.getMsg());
+        result.setCode(ResultCodeEnum.ERROR.getCode());
+        result.setMessgae(ResultCodeEnum.ERROR.getMsg());
         return result;
     }
 
