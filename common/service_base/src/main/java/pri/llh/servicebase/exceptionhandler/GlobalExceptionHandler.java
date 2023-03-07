@@ -20,4 +20,12 @@ public class GlobalExceptionHandler {
         ex.printStackTrace();
         return Result.error().setMessgae("global exception executed");
     }
+
+    @ExceptionHandler(CustomizedException.class)
+    @ResponseBody
+    public Result error(CustomizedException ex){
+        ex.printStackTrace();
+        return Result.error().setCode(ex.getCode()).setMessgae(ex.getMsg());
+    }
+
 }

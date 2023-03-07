@@ -32,9 +32,8 @@ import java.util.Map;
 @Api(tags = "edu_teacher database management operation")
 @RestController
 @RequestMapping("/eduservice/teacher")
+@CrossOrigin
 public class EduTeacherController {
-
-
 
     @Autowired
     private EduTeacherService teacherService;
@@ -65,7 +64,7 @@ public class EduTeacherController {
     }
 
     /**
-     * paginationSelectTeacher
+     * pagination Select Teacher
      * @param cur
      * @param size
      * @return Result object with total numbers and current page data
@@ -87,7 +86,7 @@ public class EduTeacherController {
     }
 
     /**
-     *
+     * conditional Pagination Select Teacher
      * @param cur
      * @param size
      * @param teacherVO
@@ -119,6 +118,9 @@ public class EduTeacherController {
         if(!StringUtils.isEmpty(end)){
             queryWrapper.le("gmt_create",end);
         }
+
+        //sort
+        queryWrapper.orderByDesc("gmt_modified");
 
         teacherService.page(teacherPage,queryWrapper);
         long total = teacherPage.getTotal();
