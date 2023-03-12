@@ -18,7 +18,8 @@ public class TestEasyExcel {
         String file = "D:\\write.xlsx";
 
         //invoke method
-        EasyExcel.write(file,DemoData.class).sheet("student").doWrite(getData());
+        //EasyExcel.write(file,DemoData.class).sheet("student").doWrite(getData());
+        EasyExcel.read(file,DemoData.class,new ExcelListener()).sheet().doRead();
     }
 
     public static List<DemoData> getData(){

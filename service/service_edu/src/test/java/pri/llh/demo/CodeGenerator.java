@@ -61,7 +61,7 @@ public class CodeGenerator {
         // 5、Policy configuration
         StrategyConfig strategy = new StrategyConfig();
 
-        strategy.setInclude("edu_teacher");
+        strategy.setInclude("edu_level");
 
         strategy.setNaming(NamingStrategy.underline_to_camel);// camel
         strategy.setTablePrefix(pc.getModuleName() + "_"); //Remove the table prefix when generating the entity

@@ -12,8 +12,8 @@ import lombok.Data;
 @Data
 public class DemoData {
     //set up the table head name
-    @ExcelProperty("studentId")
+    @ExcelProperty(value = "studentId",index = 0)
     private Integer sno;
-    @ExcelProperty("studentName")
+    @ExcelProperty(value = "studentName",index = 1)
     private String sname;
 }
